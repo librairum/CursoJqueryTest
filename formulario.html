@@ -1,0 +1,128 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset ="utf-8">
+    <title>Titulo</title>
+    <style>
+        /*
+                var elementosDiv = $("div");                
+                var elementosGrupoMarcado = $(".grupo").eq(0).has("input").has(":checked");
+                var elementosSinClase = $("div").not('.grupo');
+                elementosSinClase.addClass("grupoSeleccionado");
+
+                 $(":text").not(".texto").addClass("resaltado");
+                 */
+
+        .control{
+            /*background-color:black;color:WHITE; border-width: 1px; border-color:red*/
+        }
+        .chk{
+            color:blueviolet
+        }
+        .grupo{
+            border:1px solid green;
+        }
+        .grupoSeleccionado{
+            background-color: yellow;
+        }
+        .elementoSeleccionado{
+            border: 1px solid black;
+        }
+        .texto
+        {
+            background-color: red;
+        }
+        .resaltado{
+            background-color: teal;
+        }
+        
+        .validarTexto{
+            border:2px solid red;
+        }
+        .validarClave{
+            border:2px solid peru;
+        }
+    </style>
+    <script src ="jquery-3.5.1.js"></script>
+    <script>
+        //document.ready
+
+        function limpiar(){
+                var textos =$(":text");
+                var clave = $(":password");
+                
+                $.each(textos, function(){                    
+                    $(this).val("");
+                });
+
+                $.each(clave, function(){
+                    $(this).val("");
+                });
+        }
+
+        function validar(){
+            var textos =$(":text");
+            var clave = $(":password"); 
+            
+                $.each(textos, function(){
+                    if($(this).val() == ''){
+                        $(this).addClass("validarTexto");
+                    }else{
+                        $(this).removeClass("validarTexto");
+                    }
+                });
+            
+        }
+
+        $(function(){
+            
+            limpiar();
+            
+            $("#btnIngresar").click(function(){
+                validar();
+                
+            });
+            $("#btnCancelar").click(function(){
+                limpiar();
+            });
+
+
+        });
+    </script>
+</head>
+
+<form>
+
+    
+   <div>
+       <label>Codigo</label>
+       <input type="text" class="control" />
+       
+   </div>
+   <div>
+       <label>
+           Clave:
+       </label>
+       <input type="password" class="control" />
+       
+   </div>
+   <div>
+       <label>Correo Electornico:</label>
+       <input type="text" class="control"/>
+       
+   </div>
+   <div>
+       <label>codigo de pais</label>
+       <input type="text" class="controol" />
+       
+   </div>
+   <div>
+       <a href="#" id="btnIngresar" >Ingresar</a>
+       <a href="#"id="btnCancelar" >Cancelar</a>
+   </div>
+    
+</form>
+
+
+
+</html>
